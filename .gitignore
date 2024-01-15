@@ -1,0 +1,26 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore build output
+dist/
+build/
+out/
+
+# Ignore TypeScript configuration file
+tsconfig.json
+
+# Ignore Visual Studio Code configuration
+.vscode/
+# Ignore environment files
+.env
+
+# Ignore compiled JavaScript files
+*.js
+*.js.map
+
+# Ignore package-lock.json for npm
+package-lock.json
+
+
+# test result directory
+test-results/
