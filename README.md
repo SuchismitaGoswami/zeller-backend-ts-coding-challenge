@@ -31,6 +31,8 @@ npm run build
 ```
 npm run app
 ```
+![image](https://github.com/SuchismitaGoswami/zeller-backend-ts-coding-challenge/assets/20485477/08fc5186-4f55-4f7a-89b9-6f4701dbf1fd)
+
 
 ### Format the application
 ```
