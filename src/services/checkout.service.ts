@@ -45,6 +45,6 @@ export default class Checkout {
 
   total() {
     this._applyPricingRules();
-    return this._order.totalPrice;
+    return this._order.totalPrice.toFixed(2);
   }
 }

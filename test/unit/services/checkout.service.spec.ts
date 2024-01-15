@@ -55,7 +55,7 @@ describe("Checkout", () => {
   describe("total", () => {
     it("return the total = zero, when no item scanned", () => {
       jest.spyOn(mockedThreeForTwoRule, "apply").mockReturnValue(0);
-      expect(checkoutService.total()).toBe(0);
+      expect(checkoutService.total()).toBe(0..toFixed(2));
       expect(mockedCatalog.findProductBySUK).toHaveBeenCalledTimes(0);
       expect(mockedThreeForTwoRule.apply).toHaveBeenCalledTimes(1);
     });
@@ -69,11 +69,11 @@ describe("Checkout", () => {
         .spyOn(Catalog.prototype, "findProductBySUK")
         .mockReturnValue(productStub("ipd", "Ipad", 300));
       checkoutService.scan(new ScannedItemDTO("ipd"));
-      let totalOrder = 400;
+      let totalOrder = 400.00;
       jest
         .spyOn(jest.mocked(ThreeForTwoPricingRule).prototype, "apply")
         .mockReturnValue(totalOrder);
-      expect(checkoutService.total()).toBe(totalOrder);
+      expect(checkoutService.total()).toBe(totalOrder.toFixed(2));
       expect(mockedCatalog.findProductBySUK).toHaveBeenCalledTimes(2);
       expect(mockedThreeForTwoRule.apply).toHaveBeenCalledTimes(1);
     });
@@ -92,19 +92,19 @@ describe("Checkout", () => {
       checkoutService.scan(new ScannedItemDTO("ipd"));
 
       // when no pricing rule
-      let totalOrder = 600;
+      let totalOrder:number = 600.00;
       jest
         .spyOn(jest.mocked(ThreeForTwoPricingRule).prototype, "apply")
         .mockReturnValue(totalOrder);
-      expect(checkoutService.total()).toBe(totalOrder);
+      expect(checkoutService.total()).toBe(totalOrder.toFixed(2));
 
       // when rule applied
       jest.spyOn(mockedThreeForTwoRule, "apply").mockReturnValue(500);
-      let discountedPrice = 500;
+      let discountedPrice = 500.00;
       jest
         .spyOn(jest.mocked(ThreeForTwoPricingRule).prototype, "apply")
         .mockReturnValue(discountedPrice);
-      expect(checkoutService.total()).toBe(discountedPrice);
+      expect(checkoutService.total()).toBe(discountedPrice.toFixed(2));
       expect(mockedCatalog.findProductBySUK).toHaveBeenCalledTimes(4);
       expect(mockedThreeForTwoRule.apply).toHaveBeenCalledTimes(2);
     });
