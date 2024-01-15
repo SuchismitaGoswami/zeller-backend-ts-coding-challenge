@@ -11,15 +11,12 @@ import Catalog from "../../../src/services/catalog.service";
 jest.spyOn(Catalog, "getInstance").mockReturnValue(mockedCatalog);
 
 import Checkout from "../../../src/services/checkout.service";
-import IPricingRule from "../../../src/interfaces/pricing-rule.interface";
-
 jest.mock("../../../src/pricing-rules/three-for-two.pricing-rule");
 import ThreeForTwoPricingRule from "../../../src/pricing-rules/three-for-two.pricing-rule";
 
 import ScannedItemDTO from "../../../src/dtos/scanned-item.dto";
 import { ProductNotFoundException } from "../../../src/exceptions/product-not-found.exception";
 import { productStub } from "../test-doubles/stubs/product.stub";
-import Order from "../../../src/entities/order.entity";
 
 describe("Checkout", () => {
   let checkoutService: Checkout;

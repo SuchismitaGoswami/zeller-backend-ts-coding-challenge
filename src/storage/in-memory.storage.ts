@@ -15,7 +15,6 @@ export class InMemoryStorage<T extends IComparable<T>> implements IStorage<T> {
   }
 
   save(items: T | T[]): void {
-    console.log("save called");
     if (Array.isArray(items)) {
       items.forEach((item) => {
         this._itemStore.push(item);

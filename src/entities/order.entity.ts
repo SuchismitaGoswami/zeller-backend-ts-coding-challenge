@@ -8,7 +8,6 @@ export default class Order {
   constructor() {
     this._orderItems = new Array<OrderItem>();
     this._totalPrice = 0;
-    console.log(this._totalPrice);
   }
 
   get totalPrice(): number {

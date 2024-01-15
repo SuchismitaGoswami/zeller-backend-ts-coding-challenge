@@ -11,7 +11,6 @@ export default class Checkout {
   constructor(private readonly pricingRules: IPricingRule[]) {
     this._catalogService = Catalog.getInstance();
     this._order = new Order();
-    console.log(this._order);
   }
 
   scan(scannedItem: ScannedItemDTO): boolean {
@@ -38,9 +37,14 @@ export default class Checkout {
     });
   }
 
+  get Order(): string[] {
+    return this._order.orderItems.map((item) =>
+      Array.from({ length: item.quantity }, () => item.productSKU).join(","),
+    );
+  }
+
   total() {
     this._applyPricingRules();
-    console.log(this._order);
     return this._order.totalPrice;
   }
 }

@@ -7,15 +7,11 @@ import Catalog from "./services/catalog.service";
 
 function adminAPI() {
   // add products to inventory
-
   const catalog = Catalog.getInstance();
   catalog.addProduct({ sku: "ipd", name: "Super iPad", price: 549.99 });
   catalog.addProduct({ sku: "mbp", name: "MacBook Pro", price: 1399.99 });
   catalog.addProduct({ sku: "atv", name: "Apple TV", price: 109.5 });
   catalog.addProduct({ sku: "vga", name: "VGA adapter", price: 30.0 });
-
-  // see inventory
-  console.log(catalog.findProductBySUK("atv"));
 
   // add pricing rules
   const pricingRules = new Array<IPricingRule>();
@@ -33,22 +29,22 @@ function handle() {
   checkOut.scan(new ScannedItemDTO("atv"));
   checkOut.scan(new ScannedItemDTO("atv"));
   checkOut.scan(new ScannedItemDTO("vga"));
-  console.log(checkOut.total());
+  console.log("\n============= Order - 1 =============");
+  console.log("SKU Scanned: " + checkOut.Order);
+  console.log("Total expected: $" + checkOut.total());
 
   // test 2
   const checkOut1 = new Checkout(pricingRules);
   checkOut1.scan(new ScannedItemDTO("atv"));
-  // checkOut1.scan(new ScannedItemDTO("ipd"))
-  // checkOut1.scan(new ScannedItemDTO("ipd"))
+  checkOut1.scan(new ScannedItemDTO("ipd"));
+  checkOut1.scan(new ScannedItemDTO("ipd"));
   checkOut1.scan(new ScannedItemDTO("atv"));
-  checkOut1.scan(new ScannedItemDTO("atv"));
-  checkOut1.scan(new ScannedItemDTO("atv"));
-  checkOut1.scan(new ScannedItemDTO("atv"));
-  checkOut1.scan(new ScannedItemDTO("atv"));
-  // checkOut1.scan(new ScannedItemDTO("ipd"))
-  // checkOut1.scan(new ScannedItemDTO("ipd"))
-  // checkOut1.scan(new ScannedItemDTO("ipd"))
-  console.log(checkOut1.total());
+  checkOut1.scan(new ScannedItemDTO("ipd"));
+  checkOut1.scan(new ScannedItemDTO("ipd"));
+  checkOut1.scan(new ScannedItemDTO("ipd"));
+  console.log("\n============= Order - 2 =============");
+  console.log("SKU Scanned: " + checkOut1.Order);
+  console.log("Total expected: $" + checkOut1.total());
 }
 
 handle();
