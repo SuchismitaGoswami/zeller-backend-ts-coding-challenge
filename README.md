@@ -23,6 +23,11 @@ Zeller is starting a computer store. The task is to build the checkout system.
 3. Business logic should not change in case of modification to the storage media (e.g., database)
 4.  Code follows immutable design patterns such as there are only getter methods in the class no setter methods, but specific method which allow modification to specific property of the class based on predefined behaviour, making properties readonly etc.
 
+### Format the application
+```
+npm run format
+```
+
 ### Build the application
 ```
 npm run build
@@ -34,10 +39,6 @@ npm run app
 ```
 ![image](https://github.com/SuchismitaGoswami/zeller-backend-ts-coding-challenge/assets/20485477/5ebbb965-078c-473f-9807-0f62e2e3e11e)
 
-### Format the application
-```
-npm run format
-```
 
 ### Run the unit test
 ```
