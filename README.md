@@ -12,7 +12,8 @@ Zeller is starting a computer store. The task is to build the checkout system.
 ### Technologies Used
 
 1. NodeJS
-2. Jest Test Framework
+2. TypeScript
+3. Jest Test Framework
 
 
 ### Design Goals
