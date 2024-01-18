@@ -6,5 +6,6 @@
     "reporters": [ "default", ["jest-junit", { "outputDirectory": "test-results\\unit" }] ],
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
-    }
+    },
+    "verbose": true
   }

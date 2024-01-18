@@ -17,7 +17,7 @@ describe("ProductRepository", () => {
   });
 
   describe("constructor", () => {
-    it("product repository defined w", () => {
+    it("product repository defined", () => {
       expect(productRepository).toBeDefined();
     });
   });
@@ -43,7 +43,7 @@ describe("ProductRepository", () => {
   });
 
   describe("save", () => {
-    it("product is saved successfully when this item was not present in the store", () => {
+    it("product is saved successfully when this item is in the store", () => {
       const product = new Product("atv", "Apple TV", 1330);
       jest
         .spyOn(mockInMemoryStorage, "getAll")
@@ -53,7 +53,7 @@ describe("ProductRepository", () => {
       expect(mockInMemoryStorage.remove).toHaveBeenCalledTimes(0);
     });
 
-    it("product is saved successfully when this item was present in the store", () => {
+    it("product is saved successfully when this item is not in the store", () => {
       const product = new Product("atv", "Apple TV", 1330);
       jest.spyOn(mockInMemoryStorage, "getAll").mockReturnValue([product]);
       productRepository.save(product);
