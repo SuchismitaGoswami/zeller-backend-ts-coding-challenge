@@ -44,5 +44,4 @@ npm run app
 ```
 npm run test:unit
 ```
-![image](https://github.com/SuchismitaGoswami/zeller-backend-ts-coding-challenge/assets/20485477/edc3acb5-6769-46d8-a1a0-9398de629989)
-
+![image](https://github.com/SuchismitaGoswami/zeller-backend-ts-coding-challenge/assets/20485477/c677ba9d-fd12-4da9-b379-72ebe977816d)
